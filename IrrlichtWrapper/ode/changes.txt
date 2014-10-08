@@ -1,0 +1,12 @@
+
+
+dJointSetUniversalAxis1Offset
+dJointSetUniversalAxis2Offset
+
+dJointEnable
+dJointDisable
+dJointIsEnabled
+
+dGeomTriMeshSetTriMergeCallback
+dGeomTriMeshGetTriMergeCallback
+

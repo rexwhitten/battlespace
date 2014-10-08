@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Release Notes for the Wrapper Library for Irrlicht</title></head>
+<body>
+<hr style="width: 100%; height: 2px;"><br>
+<table style="width: 100%; height: 100px;" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td style="width: 128px; background-color: rgb(255, 186, 0);"><img style="width: 128px; height: 128px;" alt="" src="media/corner.jpg"></td>
+<td style="background-color: rgb(255, 186, 0);"></td><td style="width: 512px;" background="media/squigle.jpg">
+<h1 style="text-align: center;">Wrapper Library for
+Irrlicht</h1>
+<h1 style="text-align: center;">Release Notes</h1>
+</td>
+<td></td><td style="width: 128px;"><a href="http://www.frankdodd.screaming.net//IrrlichtWrapper/IrrlichtWrapperPortal.htm"><img style="border: 0px solid ; width: 128px; height: 128px;" alt="" src="media/visit_button.jpg"></a></td>
+</tr>
+</tbody>
+</table>
+<hr style="width: 100%; height: 2px;"><h2>Known Issues</h2><ul><li>Currently
+the material type IRR_EMT_TRANSPARENT_ADD_ALPHA_CHANNEL_REF when
+applied to grass will only work when using the material type
+IRR_EMT_FOUR_DETAIL_MAP on the terrain.</li><li>Newton Physics only
+uses convex hulls for collisions at the moment, this needs to be
+optimised so that simple boxes, spheres and cylinders can also be used
+to improve the performance.</li><li>The surface of Tiled Terrains are
+now inverted in the X axis, this has been inherited from the Irrlicht
+Terrain node it has been derived from. For compatibility this will now
+be the normal orientation for a Terrain Tile.</li><li>Wrappers
+built with g++ 4.4.0 are exhibiting some mathematical errors that can
+be seen in example 91. The suppliled binary is built with g++ 3.4.5 and
+MSVC 6 and does not exhibit these errors.</li><li>The supplied Linux
+binaries distributed in a seperate package are built on Fedora 11 with
+g++ 4.4.0 using the mesa libraries. They have only been tested on
+Fedora 11. Any project using this wrapper should rebuild their own
+binaries.</li><li>Certain cards have been shown to exhibit mipmap
+texture corruption when used with textures that have dimentions that
+are not a power of two. It is unclear whether this is a problem with
+the Wrapper, Irrlicht or the Graphics Drivers. It is therefore
+recommended that power of two textures are always used (e.g: 128x128,
+512x256, etc ...)</li></ul><br><h2>v0.7.7</h2>Added
+a new LOD manager that changes the meshes used by child mesh objects at
+particular distances and can fade the node in and out.<br><br>Added a
+new Billboard Group node that is an optimised collection of billboard
+meshes that can be used for custom particle effects.<br><br>Added a new Fade animator that fades, scales and eventually deletes the node from the scene.<br><br>Added a new Electrical Bolt effect node that simulates the effect of an electrical discharge. Scene Node created by <span style="font-weight: bold;">Sudi</span><div class="channel-title outer-box-color" style="display: none;" id="channel_title"></div>
+						
+						 with extensions from <span style="font-weight: bold;">Trivtn</span><br><br>Added a new Beam effect node that simulates a laser or tracer beam type effect. Scene Node created by&nbsp;<span style="font-weight: bold;">Gaz Davidson (Bitplane)</span><span style="font-weight: bold;"></span><br><br>Added IrrAddBoltSceneNode to create an electrical bolt effect.<br><br>Added IrrSetBoltProperties to set the properties of an electrical bolt effect<br><br>Added IrrAddBeamSceneNode to create a beam effect.<br><br>Added IrrSetBeamSize to set the size of a beam effect.<br><br>Added IrrSetBeamPosition to set the start and end position of a beam effect.<br><br>Added IrrAddFadeAnimator attach a fade, scale and delete animator to a node.<br><br>Added IrrAddLODManager to create an LOD management system.<br><br>Added IrrAddLODMesh to add a level of detail to a LOD management system<br><br>Added IrrSetLODMaterialMap to allow the assignment of materials that
+are used as substitues for a nodes normal material to face them out
+over time<br><br>Added IrrSetNodeMesh to set the mesh of a node<br><br>Added IrrSetBillBoardColor to set the colour of a standard billboard<br><br>Added IrrSetBillBoardSize to set the size of a standard billboard<br><br>Added IrrAddBillBoardGroupToScene to add a billboard group management system <br><br>Added IrrAddBillBoardToGroup to add a billboard to a billboard group<br><br>Added IrrAddBillBoardByAxisToGroup to add a billboard fixed to an axis to a billboard group<br><br>Added IrrRemoveBillBoardFromGroup to remove a billboard from a billboard group<br><br>Added IrrBillBoardGroupShadows to shade billboards in a billboard group with lighting from a particular direction<br><br>Added IrrGetBillBoardGroupCount to retrieve the count of the number of billboards in a billboard group<br><br>Added IrrBillBoardForceUpdate to force a billboard group to update their orientations to the camera.<br><br>Added
+IrrStartAdvanced to provide an advanced start up function that allows
+for the use of anti-aliasing and high precision floating point
+calculations. Contributed by Agamemnus.<br><br>Added
+IrrBeginSceneAdvanced to provide an advance begin scene function
+providing control over whether the back buffer and&nbsp;buffer are
+erased. Contributed by Agamemnus.<br><br>Added IrrSetRenderTarget to
+provide control for switching the output of the drawing operations
+perminantly to a texture. Contributed by Agamemnus.<br><br>Added
+IrrGet2DPositionFromScreenCoordinates to get a coordinate on a 2D plane
+from a ray cast through a camera. Contributed by Agamemnus.<br><br>Added IrrSetNodeColorByVertex to change the way vertex color effects all materials in a node. Contributed by Agamemnus.<br><br>Added IrrSetNodeAmbientColor to set the ambient color of all materials associated with a node. Contributed by Agamemnus.<br><br>Added IrrSetNodeDiffuseColor to set the diffuse color of all materials associated with a node. Contributed by Agamemnus.<br><br>Added IrrSetNodeSpecularColor to set the specuilar color of all materials associated with a node. Contributed by Agamemnus.<br><br>Added IrrSetNodeEmissiveColor to set the emissive color of all materials associated with a node. Contributed by Agamemnus.<br><br><h2>v0.7.6</h2>Added IrrGetScreenSize to get the size of the screen. Contributed by Agamemnus.<br><br>Added IrrGetAbsoluteMousePosition to get the absoloute position of the mouse. Contributed by Agamemnus.<br><br>Added IrrGetNodeScale to determine the scaling applied to a node.<br><br>Added IrrGetScreenSize to get the size of the screen.<br><br>Added IrrIsFullscreen to check if the application is fullscreen mode.<br><br>Added IrrIsWindowActive to check if the window is active.<br><br>Added IrrIsWindowFocused to check if the window has focus.<br><br>Added IrrIsWindowMinimized to check if the window is minimised.<br><br>Added IrrMaximizeWindow to maximise the window.<br><br>Added IrrMinimizeWindow to minimise the window.<br><br>Added IrrRestoreWindow to restore the size of the window.<br><br>Added IrrResizableWindow to make a window resizable by the user.<br><br>Changes to irrlicht_transforms.bi by Agamemnus to include the following things: -<br><ul><li><span class="postbody">Define multikeyold and getmouseold before undefining multikey and
+getmouse. Now people can still use the "old"
+multikey functions if they close the Irrlicht window later on in their
+program.
+</span></li><li><span class="postbody">Added "continue do" to all mouse select case cases.
+</span></li><li><span class="postbody">Added a clip test.</span></li></ul>Reworked
+IrrlichtNewton.bi to provide a simple interface and basic example
+function on Newton collision. The origonal include file is supplied as
+"IrrlichtNewtonGamePhysics.bi"<br><br>Added
+IrrlichtODE.bi to provide almost identical physics support as is
+supplied for IrrlichtNewton.bi only for ODE physics. This is all based
+on the ODE include files contributed to FreeBASIC by D.J.Peters.<br><br>Added the Batching Meshes module from <span style="font-weight: bold;">Gaz Davidson (Bitplane)</span>
+if your scene contains hundreds of static scenenodes this technique can
+greatly increase the framerate by batching them all together in one set
+of geometry. You can realise as high as a <span style="font-weight: bold;">40 times</span> speed increase!<br><br>Added
+IrrCreateBatchingMesh to create an empty batching mesh that is a
+collection of other meshes and used to reduce node counts in a scene
+thereby increasing framerate.<br><br>Added IrrAddToBatchingMesh to add a standard static mesh to a batch of meshes.<br><br>Added IrrFinalizeBatchingMesh to complete the batching mesh once all meshes have been added and recover a standard mesh object.<br><br>Added IrrSetMeshMaterialTexture to set the texture image associated with a mesh.<br><br>Added IrrGetMeshVertexMemory to get the memory for the array of vertex data structures in the Irrlicht Engine.<br><br>Added the <span style="font-weight: bold;">"XEffects - Reloaded"</span> system produced by <span style="font-weight: bold;">BlindSide</span>
+from the irrlicht community, this contains several shaders that can
+have a massive visual impact on the realism of your scene. The Dynamic
+Shadow casting lights probably have the biggest impact. of all of the
+shaders introducing quality realistic lighting into the scene.<br><br>Added IrrXEffectsStart to start the XEffects GLSL and HLSL shader support system.<br><br>Added IrrXEffectsEnableDepthPass to enable a depth rendering pass in XEffects used with the SSAO and water shaders.<br><br>Added IrrXEffectsAddPostProcessingFromFile to add a GLSL or HLSL shader to the engine from a file.<br><br>Added IrrXEffectsSetPostProcessingUserTexture to set the texture associated with certain XEffects.<br><br>Added IrrXEffectsAddShadowToNode to add a dynamic shadow to a node.<br><br>Added IrrXEffectsRemoveShadowFromNode to remove a dynamic shadow from a node.<br><br>Added
+IrrXEffectsExcludeNodeFromLightingCalculations to exclude a node from
+lighting calculations in the XEffects rendering passes.<br><br>Added IrrXEffectsAddNodeToDepthPass to add a node to XEffects depth pass rendering.<br><br>Added IrrXEffectsSetAmbientColor to set the ambient level of lighting the the XEffects shaders.<br><br>Added IrrXEffectsSetClearColor to set the background color when using XEffect post processing shaders.<br><br>Added IrrXEffectsAddShadowLight to add a shadow casting XEffects light.<br><br>Added IrrXEffectsSetShadowLightPosition to set the position of an XEffects shadow casting light.<br><br>Added IrrXEffectsGetShadowLightPosition&nbsp; to get the position of an XEffects shadow casting light.<br><br>Added IrrXEffectsSetShadowLightTarget&nbsp; to set the target of an XEffects shadow casting light.<br><br>Added IrrXEffectsGetShadowLightTarget&nbsp;to get the target of an XEffects shadow casting light.<br><br>Added IrrXEffectsSetShadowLightColor to set the color of an XEffects shadow casting light.<br><br>Added IrrXEffectsGetShadowLightColor&nbsp;to set the color of an XEffects shadow casting light.<br><br>Tidyied up styling of HTML documentation<br><br>Moved Lighting discussion to the IrrlichtWrapper Website.<br><br><br><h2>v0.7.5</h2>Remove the unsupported IrrLockOpenGLTexture from the reference and corrected heading for IrrUnlockImage.<br><br>Added command IrrGetNodeMesh to get the mesh associated with a scene node contributed by&nbsp;agamemnus<br><br>Modified
+IrrStop to close the device, this now means that resources are tidied
+up correctly and a new device can even be opened to change resolution.<br><br>Modified
+the handling of Keyboard, Mouse and GUI events so that all events are
+recieved and the GUI does not block the other two.<br><br>Removed IrrGUIEvents as it is no longer needed.<br><br>Added IrrRenameMesh to allow a loaded mesh to be renamed<br><br>Added IrrScaleMesh to allow for the uniform scaling of a mesh without effecting its vertex normals.<br><br>Added IrrDraw2DImageElementStretch to copy an image to the screen while scaling it too. Contributed by Eric (The Car)<br><br>Added IrrSetNodeTriangleSelector to attach a triangle selector to a specific node for multiple nodes. Recommended by Agamemnus.<br><br>Changed
+IrrSetMeshVertexCoords, IrrSetMeshVertexCoords and
+IrrSetMeshVertexSingleColor to include an extra index so for example a
+group [0] to [0] would include one vertex.<br><br>Added IrrGetTextureInformation to get dimentions, pitch and color format of a texture.<br><br>Added IrrGetImageInformation to get dimentions, pitch and color format of an image.<br><br>Added
+IrrSetNodeRotationPositionChange to allow for the incremental rotation
+and direction dependant incremental position change of a node while
+returning information that can be used to attach a camera and locate
+other objects and effects. This code is based on examples from Chev and
+&nbsp;also in large part the cockpit example functions by Arras.<br><br>Added IrrGetMeshBoundingBox to get the bounding box of a mesh. Contributed by Agamemnus.<br><br>Added
+IrrGetNodeTransformedBoundingBox to get the tranformed absoloute
+position of a nodes bounding box. Contributed by Agamemnus.<br><br>Changed IrrAddNodeShadow to add an optional parameter allowing a low resoloution mesh to be used in shadow calculation.<br><br><h2>v0.7.4</h2>Changed&nbsp; IrrMaterialVertexColourAffects to IrrMaterialVertexColorAffects<br><br>Changed IrrSetNodeAnimationSpeed to take a speed parameter of type floating point to conform with Irrlicht signiture changes.<br><br>Changed IrrSetNodeAnimationFrame to take a frame parameter of type floating point to conform with Irrlicht signiture changes.<br><br>Added function IrrGetDistanceBetweenNodes to get the distance between two nodes efficiently.<br><br>Added function IrrAreNodesIntersecting to determine if the bounding boxes of two nodes are intersecting.<br><br>Added function IrrIsPointInsideNode to determine if a point is inside the bounding box of a node.<br><br>Added function IrrGetCollisionResultPosition to add eplisoid collision management&nbsp;supplied by  'The Car'.<br><br>Corrected IrrGetCollisionGroupFromMesh to return a triangle selection.highlighted by super_castle<br><br>Updated Newton functions provided by SiskinEDGE to support mesh buffer.<br><br>Corrected missing parameters in IrrSetMeshVertexSingleColor highlighted by&nbsp;agamemnus<br><br>Updated
+IrrRemoveCollisionGroup to allow it to take a scene node parameter that
+lets the selector be removed from an associated node.<br><br>Updated
+IrrGetCollisionGroupFromComplexMesh and IrrGetCollisionGroupFromBox so
+the created selector is attached to the scene node they are created
+from.<br><br>Added
+function IrrGet3DPositionFromScreenCoordinates to get a 3D position on
+a plane from a set of screen co-ordinates, contributed by&nbsp;agamemnus<br><br>Included
+correction to CParticleEmissionEffector constructor used in
+IrrAddStopParticleAffector to allow the stop time to be set correctly.
+Contributed by The Car<br><br>Added example 91_Example_DistanceAndCollision.bas to demonstrate new distance and collision functions.<br><br>Added example 92_Example_MovingEntitiesByCollision.bas to demonstrate moving entities around a scene through collision.<br><br>Added example 93_Example_3DPositionFromScreen.bas to demonstrate getting a point on a plane from screen co-ordinates.<br><br>Corrected example 50_Example_Fading_Nodes_Out.bas to correctly demonstrate fading nodes.<br><br>Resolved all compilation warnings at warning level 3 when built under msvc6 and g++3.4.5<br><br><h2>v0.7.3</h2>Added
+in new video feature queries supported by Irrlicht for Vertex Buffer
+Object, Alpha to Coverage, Color Masks, Multiple Render Targets, Blend
+settings for Multiple Render Targets and Geometry Shaders.<br><br>Added IrrSetMaterialBlend for setting the Blend settings of materials associated with the ONETEXTURE_BLEND material.<br><br>Added
+IrrAddBillboardTextSceneNode for adding a billboard with text on it
+that can be used as a scaling label in a 3D environment.<br><br>Added IrrSetTime for setting the irrlicht animation time in the system.<br><br>Updated example 23_Example_Video_Features.bas to display new feature capabilities.<br><br>Updated example 81_Example_GLSL_Shader_Materials.bas to display a range of GLSL materials.<br><br>Added example 86_Example_Screenshot_to_texture.bas to demonstrate capturing screenshots to textures.<br><br>Added example 87_Example_MultiPass_Rendering.bas to demonstrate blending several rendering passes to the display.<br><br>Added example 88_Example_Billboard_Text.bas to demonstrate adding billboard text and attaching it to a node.<br><br>Added example 89_Example_Orthagonal_Camera.bas to demonstrate the use of orthagonal cameras<br><br>Added example 90_Example_Collision_Point.bas to demonstrate a new ray collision test feature.<br><br>Added IrrDisableFeature for disabling video driver features.<br><br>Added IrrGetNodeBoundingBox to get the bounding box of a node. supplied by Agamemnus<br><br>Added IrrSetMaterialLineThickness to set the material line thickness of vertex drawing operation. supplied by Agamemnus<br><br>Added IrrSetMeshVertexSingleColor to set groups of verticies in a mesh to a uniform color. supplied by Agamemnus<br><br>Added IrrGetCollisionGroupFromMesh to creates a collision group from the triangles in a mesh.<br><br>Added IrrRemoveCollisionGroup to remove a collision group freeing the memory it uses.<br><br>Added
+IrrGetNodeAndCollisionPointFromRay to detect a collision between a ray
+and scene node objects that have had collision groups created for them.<br><br>Added IrrDisableFeature to disable particular video features.<br><br>Added IrrGetMeshFrameCount to get the number of frames in an animated mesh<br><br>Added IrrGetMeshBufferCount to get the number of mesh buffers in a mesh.<br><br>Added IrrSetCameraOrthagonal &nbsp;to set the camera to display an Orthagonal view instead of the default persepective view.<br><br>Updated
+IrrGetMeshIndexCount, IrrGetMeshIndices, IrrSetMeshIndices,
+IrrGetMeshVertexCount, IrrGetMeshVertices, IrrSetMeshVertices,
+IrrSetMeshVertexColors, IrrSetMeshVertexCoords and
+IrrSetMeshVertexSingleColor to work from individual mesh buffers
+instead of the entire mesh as a single object.<br><br>Corrected&nbsp;IrrSetMeshVertices and IrrSetMeshVertexCoords to correctly set the bounding box of the mesh they modify.<br><br><h2>v0.7.2</h2>Changed the IrrGetScreenShot command to capture a portion of the screen to texture rather than the whole screen to an image.<br><br>Corrected a bug where mouse events were not being passed to the active camera when keyboard and mouse is being captured.<br><br>Corrections for bugs in passing variables to GLSL materials.<br><br><h2>v0.7.1</h2>Updated documentation with new commands<br><br>Updated IrrlichtWrapper to compile with Irrlicht version 1.7.1<br><br>Updated IrrlichtWrapper to compile with g++ upto version 4.4.1<br><br>Added IrrSetMeshVertexColors for setting the color of verticies supplied by Agamemnus<br><br>Added IrrSetMeshVertexCoords for setting the co-ordinates of verticies supplied by Agamemnus<br><br>Added IrrAddEmptySceneNode to add an empty scene node to the scene supplied by Agamemnus<br><br>Added IrrGetCameraUpDirection to get the up direction of the active camera supplied by Agamemnus<br><br>Added IrrGetScreenShot to grab a screenshot into an image<br><br>Added IrrRemoveImage to remove an image from memory<br><br>Added IrrMaterialVertexColourAffects to set the material property that vertex colour effects<br><br>Added IrrGUIClear to clear all GUI objects from the screen<br><br>Added IrrGUIRemove to remove a specific GUI object<br><br>Added IrrGUIGetText to get the text associated with a GUI object<br><br>Added IrrGUISetText to set the text associated with a GUI object<br><br>Added IrrAddWindow to add a blank window GUI object to the display<br><br>Added IrrAddButton to add a clickable button GUI object to the display<br><br>Added IrrAddScrollBar to add a scrollbar GUI object to the display<br><br>Added IrrAddListBox to add a listbox GUI object to the display<br><br>Added IrrAddListBoxItem to add items to a listbox GUI object<br><br>Added IrrInsertListBoxItem to insert items into specific positions in a listbox GUI object<br><br>Added IrrRemoveListBoxItem to remove a specific item from a listbox GUI object<br><br>Added IrrSelectListBoxItem to select a specific item in a listbox GUI object<br><br>Added IrrAddEditBox to add an editable editbox GUI item<br><br>Added IrrAddImage to add a 2D image GUI item<br><br>Added IrrAddCheckBox to add a clickable checkbox GUI item<br><br>Added IrrCheckCheckBox to set the check state of a checkbox GUI item<br><br>Added IrrAddFileOpen to add a file open GUI item<br><br>Added IrrGUISetFont to set the font associated with the GUI<br><br>Added IrrGUISetColor to set the colour of the GUI<br><br>Added IrrGUIEvents to start or end capturing GUI events<br><br>Added IrrGUIEventAvailable to check if there is a GUI event available<br><br>Added IrrReadGUIEvent to read a GUI event<br><br>Added IrrGetLastSelectedFile to get the last select file from a GUI file selection object<br><br>Added IrrSetViewPort to allow rendering to be confined to an area of the screen for split screen effects<br><br>Added IrrSetCameraAspectRatio to allow the aspect ratio of a camera to be changed primarily for split screen effects<br><br>Updated example 36 materials to work with Irrlicht 1.7.1<br><br>Added examples to demonstrate a GLSL material, GUI, Split Screen, Freetype fonts and Embedded OpenGL commands.<br><br>Added example 85_Example_Split_Screen.bas to demonstrate splitscreen rendering.<br><br><h2>v0.7</h2>Newton Physics Engine support for convex hulls by SiskinEDGE<br><br>Modified to work with Irrlicht v1.6<br><br>Support for hardware accelerated meshes allowing static models to .<br><br>Support for Crossed grass, correction to reduce grass 'popup'<br><br>Particle systems now have minimum and maximum particle size properties in<br>their configuration structures<br><br><h2>v0.6.2</h2>Corrections to allow compilation under linux without modification<br><br>Captured keyboard commands are now also sent to the active camera.<br><br>Correction to example 44 to prevent a crash under build for Direct3D<br><br>Corrections to build for DirectX to support all 236 commands in the library<br><br><h2>v0.6.1</h2>Corrected examples to not use litteral paths thanks AlexZ<br><br>Added column support to push particle affector<br><br>Added IrrSetColumnDistanceOfEffect to allow the push affector columnn effect to be dynamically changed<br><br>Added IrrCreateImage to create blank images<br><br>Added IrrLockImage to get the pixels for an image<br><br>Added IrrUnlockImage to release the pixels for an image<br><br>Added
+IrrGetSphericalTerrainSurfacePosition for getting coordinates from a
+sphereical terrains face number and a logical X,Z coordinate<br><br>Added
+IrrGetSphericalTerrainSurfacePositionAndAngle for getting coordinates
+from a sphereical terrains face number and a logical X,Z coordinate,
+this also returns the angle of the point at the surface, useful for
+placing objects on the spheres surface.<br><br>Added
+IrrGetSphericalTerrainLogicalSurfacePosition for getting the logical
+face number and X,Z coordinates from normal spacial coordinates. (This
+is not 100% accurate yet) (not supported in DirectX in this release)<br><br>Added
+IrrAddMayaCamera for adding a maya style camera to the view you can
+click and drag to move, revolve and zoom this camera. Suggested by
+Alvaro<br><br>Updated documentation with new commands<br><br>Added examples 70 to 76 to demonstrate features<br><br>Minor correction to example 12 thanks Alvaro<br><br>Significant improvement to Example 14 to show proper manual camera control<br><br>Corrected IrrSetCameraUpDirection in the manual thanks AlexZ<br><br><h2>v0.6</h2>Included a simple hacha.jpg file to correct examples 21, 41 and 43<br><br>Added IrrAddClouds to create a clouds node by Gaz Davidson and Nikolaus Gebhardt<br><br>Added IrrAddGrass to create a patch of grass across a terrain by Gaz Davidson<br><br>Added IrrSetSkyDomeColor for tinting the texture on a skydome<br><br>Added IrrAddStopParticleAffector to stop particle flows<br><br>Added IrrSetSkyDomeColor for setting the color of verticies in a skydome<br><br>Added IrrAddZoneManager for adding automatic node management<br><br>Added IrrGetImage for loading image files that do not use video memory<br><br>Added IrrAddTerrainTile for adding terrain objects that can be tiled!<br><br>Added IrrScaleTileTexture for scaling tiled terrain objects<br><br>Added IrrAttachTile for attaching tilable terrain objects together<br><br>Added IrrSetTileColor for loading the vertex color of terrain tiles<br><br>Added IrrSetTileStructure for loading the height and vertex color of terrain tiles<br><br>Added IrrSetGrassDensity for changing grass density<br><br>Added IrrSetGrassWind for changing the strength of wind affecting the grass<br><br>Added IrrSetZoneManagerAttachTerrain for attaching a terrain to a zone<br><br>Added IrrRevolveCamera for 6DOF (six degrees of freedom) camera motion for spacecraft and aircraft<br><br>Added IrrSetMousePosition for moving the mouse on the screen<br><br>Added
+IrrTransparentZWrite for ordering transparent objects. This causes a
+performance hit but can correct situations where transparent objects
+appear in the wrong order on the screen<br><br>Added IrrGetTerrainTileHeight to get the height of a point on a tile terrain<br><br>Added IrrGetTerrainHeight to get the height of a point on a normal terrain<br><br>Added IrrAddLensFlare to create a camera lens flare effect<br><br>Added IrrSetFlareScale to set the scale of the lens flare effect<br><br>Added IrrSetSkyDomeColorBand to add a band of color to a skydome<br><br>Added IrrSetSkyDomeColorPoint to add a circle of color radiating out from a point to the vertices of a skydome<br><br>Added IrrSetZoneManagerProperties to set the properties of a zone management object<br><br>Added IrrSetNodeName to set the name of a node<br><br>Added IrrGetNodeName to get the name of a node<br><br>Added IrrGetRootSceneNode to get the root object within which all other nodes are contained<br><br>Added IrrGetChildCollisionNodeFromRay to get a child object hit by a ray<br><br>Added IrrSetZoneManagerBoundingBox to get the bounding box of a zone managment object<br><br>Added IrrGetChildCollisionNodeFromPoint to get a child object contained in a specific location<br><br>Added IrrGetNodeFirstChild to get the first child object of a specific object<br><br>Added IrrIsNodeLastChild to check if an object is the last child object of a specific object<br><br>Added IrrGetNodeNextChild to get the next child object of a specific object<br><br>Added IrrGetNodeAbsolutePosition to get the absolout position of a node taking into account the positions of all of its parents<br><br>Added IrrSetNodeParent to set the parent node of a specific node<br><br>Added IrrSetCameraUpAtRightAngle to adust the camera up angle so that it is at right angles to the camera vector<br><br>Added IrrAddSphericalTerrain to create a spherical terrain object for planets<br><br>Added IrrScaleSphericalTexture to scale the textures of a spherical terrain object<br><br>Added IrrAddStopParticleAffector to create a particle affector that stops the flow of particles from a specific emitter<br><br>Added IrrAddParticlePushAffector to create a particle affector that pushes particles in particular directions<br><br>Added IrrAddColorMorphAffector to create a particle color morph affector that changes the color of a particle over its lifetime<br><br>Added IrrSetFurthestDistanceOfEffect to set the furthest distance that the push affector has any influence<br><br>Added IrrSetNearestDistanceOfEffect to set the nearest distance that the push affector has any influence<br><br>Added IrrSetCenterOfEffect to set the center of the effect of a push affector<br><br>Added IrrSetStrengthOfEffect to set the strength of a push affector<br><br>Added IrrAddSplineAffector to create a spline path affector for particles<br><br><h2>v0.5.1</h2>Included
+a new parameter into IrrStart that allows the wrapper to enable
+Irrlichts vertical syncronisation to prevent 'tearing' of the picture
+by syncronising the refresh of the display. (suggested by Daiwa)<br><br><h2>V0.5</h2>Eponasoft contributed support for skydomes with IrrAddSkyDomeToScene<br><br>Eponasoft contributed support for water nodes with IrrAddWaterSurfaceSceneNode<br><br>Eponasoft contributed support for hill planes with IrrAddHillPlaneMesh<br><br>Eponasoft contributed support for loading IrrEdit scenes with IrrLoadScene<br><br>Added support for saving the current scene to a file that can be loaded into irrEdit with IrrSaveScene.<br><br>Added support for finding a node in the scene by its ID with IrrGetSceneNodeFromId<br><br>Added support for finding a node in the scene by its name with IrrGetSceneNodeFromName<br><br>Support for adding a simple cube scene node<br><br>Support for adding a simple Sphere scene node<br><br>Added support for the Irrlicht call to set texture creation flags with IrrSetTextureCreationFlag<br><br>Added support for the Irrlicht call to draw a 3D line into the display with IrrDraw3DLine<br><br>Added
+support for the Irrlicht call to create a texture that is suitable for
+the scene manager to use as a surface to which it can render its 3d
+scene with IrrCreateRenderTargetTexture. Each the dimentions must be a
+power of two for example 128x128 or 256x256<br><br>Added support for
+the Irrlicht call to draw scene manager objects to a texture surface
+with IrrDrawSceneToTexture. The texture must have been created with a
+call to IrrCreateRenderTargetTexture<br><br>Added support for the Irrlicht call to create a blank texture with IrrCreateTexture<br><br>Added support for the Irrlicht call to lock the texture and returns a pointer to the pixels with IrrLockTexture<br><br>Added
+support for the Irrlicht call to unlock the texture with
+IrrUnlockTexture, presumably after it has been modified and recreate
+the mipmap levels<br><br>Added support for the Irrlicht call to remove a texture from memory with IrrRemoveTexture freeing the resources<br><br>Added
+support for the Irrlicht query feature command. The video card can now
+be queried to see which video card features it supports.<br><br>Added
+support for the Irrlicht call to add a mesh to the scene as a static
+object with IrrAddStaticMeshForNormalMappingToScene, the mesh is
+altered so that it is suitable for the application of a Normal or
+Parallax mapping material, at this time any animation information is
+lost.<br><br>Added support for Irrlicht call to make a normal map from a greyscale bump map texture with IrrMakeNormalMapTexture<br><br>Added support for Irrlicht call to Get the number of materials associated with a node with IrrGetMaterialCount<br><br>Added support for Irrlicht call to Get the material associated with the node at the particular index with IrrGetMaterial<br><br>Added
+support for Irrlicht call to Set how shiny the material is with
+IrrMaterialSetShininess the higher the value the more defined the
+highlights<br><br>Added support for Irrlicht call to set the color of specular highlights on the object with IrrMaterialSetSpecularColor<br><br>Added support for Irrlicht call to set the color of diffuse lighting on the object with IrrMaterialSetDiffuseColor<br><br>Added support for Irrlicht call to set the color of ambient light reflected by the object with IrrMaterialSetAmbientColor<br><br>Added support for Irrlicht call to set the color of light emitted by the object with IrrMaterialSetEmissiveColor<br><br>Added support for Irrlicht call to&nbsp; set material specific parameter with IrrMaterialSetMaterialTypeParam<br><br>Added
+a materials interface with a series of functions for adding GPU Shader
+programs for modern graphics cards. This interface is in an early phase
+of development and requires more work.<br><br>Added support for
+Irrlicht calls for creating Materials based upon GPU programs for cards
+that support the feature : IrrAddHighLevelShaderMaterial,
+IrrAddHighLevelShaderMaterialFromFiles, IrrAddShaderMaterial and
+IrrAddShaderMaterialFromFiles<br><br>Added support for Irrlicht calls
+for creating constants to materials with:
+IrrCreateNamedVertexShaderConstant, IrrCreateNamedPixelShaderConstant,
+IrrCreateAddressedVertexShaderConstant and
+IrrCreateAddressedPixelShaderConstant<br><br>IrrGetMS3DJointNode and IrrGetDirectXJointNode are now replaced with a universal IrrGetJointNode call.<br><br>Added
+support for Irrlicht calls for setting the current frame number being
+played in the animation with IrrSetNodeAnimationFrame<br><br>Added
+support for Irrlicht calls for setting the time in seconds across which
+two animation frames are blended with IrrSetTransitionTime. This can be
+used to smothly animate a model between two poses where no animation
+data exists.<br><br>Added support for Irrlicht calls for animating the
+mesh based on the position of the joints, this should be used at the
+end of any manual joint operations including blending and joints
+animated using IRR_JOINT_MODE_CONTROL and IrrSetNodeRotation on a bone
+node with IrrAnimateJoints<br><br>Added support for Irrlicht calls for
+setting the animation mode of joints in a node with IrrSetJointMode
+allowing them to be blended or controlled programatically.<br><br>Added
+support for Irrlicht call to write the first frame of the supplied
+animated mesh out to a file using the specified file format with
+IrrWriteMesh<br><br>Added support for Irrlicht calls for creating a
+particle emitter for an animated mesh scene node with
+IrrCreateAnimatedMeshSceneNodeEmitter<br><br>Added support for Irrlicht
+calls for creating a point attraction affector with
+IrrAddParticleAttractionAffector. This affector modifies the positions
+of the particles and attracts them to a specified point at a specified
+speed.<br><br>Added support for Irrlicht calls for creating a rotation
+affector with IrrCreateRotationAffector. This affector modifies the
+positions of the particles and attracts them to a specified point at a
+specified speed per second.<br><br>Added support for Irrlicht calls for setting direction the emitter emits particles with IrrSetParticleEmitterDirection.<br><br>Added
+support for Irrlicht calls for setting minimum number of particles the
+emitter emits per second with
+IrrSetParticleEmitterMinParticlesPerSecond.<br><br>Added support for
+Irrlicht calls for setting maximum number of particles the emitter
+emits per second IrrSetParticleEmitterMaxParticlesPerSecond.<br><br>Added support for Irrlicht calls for setting minimum starting color for particles with IrrSetParticleEmitterMinStartColor.<br><br>Added support for Irrlicht calls for setting maximum starting color for particles IrrSetParticleEmitterMaxStartColor.<br><br>Added support for Irrlicht calls for enabling or disabling an affector with IrrSetParticleAffectorEnable.<br><br>Added
+support for Irrlicht calls for altering the fadeout affector changing
+the fade out time with IrrSetFadeOutParticleAffectorTime.<br><br>Added
+support for Irrlicht calls for altering the fadeout affector changing
+the target color IrrSetFadeOutParticleAffectorTargetColor.<br><br>Added support for Irrlicht calls for altering the direction and force of gravity with IrrSetGravityParticleAffectorDirection.<br><br>Added
+support for Irrlicht calls for setting the time in milliseconds when
+the gravity force is totally lost and the particle does not move any
+more with IrrSetGravityParticleAffectorTimeForceLost.<br><br>Added
+support for Irrlicht calls for setting whether or not this will affect
+particles in the X direction with
+IrrSetParticleAttractionAffectorAffectX.<br><br>Added support for
+Irrlicht calls for setting whether or not this will affect particles in
+the Y direction with IrrSetParticleAttractionAffectorAffectY.<br><br>Added
+support for Irrlicht calls for setting whether or not this will affect
+particles in the Z direction with
+IrrSetParticleAttractionAffectorAffectZ.<br><br>Added support for
+Irrlicht calls for setting whether or not the particles are attracting
+or detracting with IrrSetParticleAttractionAffectorAttract.<br><br>Added
+support for Irrlicht calls for setting the point that particles will
+attract to with IrrSetParticleAttractionAffectorSetPoint.<br><br>Added
+support for Irrlicht calls for setting the point that particles will
+rotate about with IrrSetRotationAffectorSetPivotPoint.<br><br>Added
+support for Irrlicht calls for clearing all meshes that are held in the
+mesh cache but not used anywhere else with IrrClearUnusedMeshes<br><br>Added
+support for Irrlicht calls for removing all nodes in a scene with
+IrrRemoveAllNodes. This is useful for example for clearing the scene
+between levels.<br><br>Added support for Irrlicht calls for saving a screenshot out to a file with IrrSaveScreenShot<br><br>Added support for Irrlicht calls for setting the Ambient color emitted by the light with IrrSetLightAmbientColor<br><br>Added support for Irrlicht calls for setting the the light strength fading over distance with IrrSetLightAttenuation<br><br>Added support for Irrlicht calls for setting whether the light casts shadows with IrrSetLightCastShadows<br><br>Added support for Irrlicht calls for setting the Diffuse color emitted by the light with IrrSetLightDiffuseColor<br><br>Added support for Irrlicht calls for setting the lights strength's decrease between Outer and Inner cone with IrrSetLightFalloff<br><br>Added support for Irrlicht calls for setting the angle of the spot's inner cone with IrrSetLightInnerCone<br><br>Added support for Irrlicht calls for setting the angle of the spot's outer cone IrrSetLightOuterCone<br><br>Added
+support for Irrlicht calls for setting the Radius of light with
+IrrSetLightRadius. Everything within this radius be be lighted.<br><br>Added support for Irrlicht calls for setting the Specular color emitted by the light with&nbsp; IrrSetLightSpecularColor<br><br>Added support for Irrlicht calls for setting the type of the light with IrrSetLightType<br><br>Adding
+lighting attributes has provided support to defining spot lights and
+distant light, the position and direction of these directional light
+sources can be changed by moving and rotation the light node.<br><br>
+<hr style="width: 100%; height: 2px;"><br>
+</body></html>

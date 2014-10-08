@@ -1,0 +1,323 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html style="direction: ltr;"><head>
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=windows-1252"><title>Introduction to the Wrapper Library for Irrlicht</title>
+
+<meta name="GENERATOR" content="OpenOffice.org 1.1.2 (Win32)">
+<meta name="AUTHOR" content="Frank Dodd">
+<meta name="CREATED" content="20060401;17312090">
+<meta name="CHANGEDBY" content="Frank Dodd">
+<meta name="CHANGED" content="20060402;9384696">
+<style>
+</style></head>
+<body style="direction: ltr;">
+<table style="width: 784px; height: 100px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td style="width: 128px; background-color: rgb(255, 186, 0);"><img style="width: 128px; height: 128px;" alt="" src="media/corner.jpg"></td>
+<td style="background-color: rgb(255, 186, 0); width: 8px;"></td>
+<td style="width: 512px;" background="media/squigle.jpg">
+<h1 style="text-align: center;">Wrapper Library for
+Irrlicht</h1>
+<h1 style="text-align: center;">Introduction</h1>
+</td>
+<td style="width: 8px;"></td>
+<td style="width: 128px;"><a href="http://www.frankdodd.screaming.net//IrrlichtWrapper/IrrlichtWrapperPortal.htm"><img style="border: 0px solid ; width: 128px; height: 128px;" alt="" src="media/visit_button.jpg"></a></td>
+</tr>
+</tbody>
+</table>
+<hr style="width: 100%; height: 2px;">
+<p></p>
+<table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td>
+<h2>Overview</h2>
+The first thing I must do
+is acknowledge
+the fantastic work that has been carried out by the many different
+authors whos amazing work makes it possible for this package to enable
+BASIC programmers to build rich and immersive 3D applications and
+games. You can find a list of acknowledgements at the end of this
+document.
+<p style="margin-bottom: 0cm;">This wrapper library
+provides a <span style="font-weight: bold;">simple</span>
+and <span style="font-weight: bold;">partial</span>
+gateway from non object-oriented
+languages like <span style="font-weight: bold;">FreeBasic</span>
+into the object oriented 3D graphics Engine <span style="font-weight: bold;">Irrlicht</span>.
+Although the wrapper only exposes part of the
+functionality of Irrlicht it endevours to expose the most important
+parts to give you access to Irrlichts powerful features. It does not
+directly expose the Irrlicht commands but provides a seperate syntax
+to encapsulate the engine. </p></td>
+<td><img style="width: 448px; height: 350px;" alt="" src="media/demograss.jpg"><br>
+</td>
+</tr>
+<tr><td colspan="2" rowspan="1"><p style="margin-bottom: 0cm;">In total it provides
+well over 200 commands that
+cover Bitmaps, 3D models, Maps, Terrains, Cameras, Lights and
+more.&nbsp;At
+this time there is no practical support for the Irrlicht GUI,
+applications would need to provide any &nbsp;widget controls with.</p>
+<p style="margin-bottom: 0cm;">This document serves
+as an
+introduction
+into the wrapper, from here I suggest you follow the installation
+instructions below and then try out the examples, these practical
+demonstrations provide an excellent way to learn how the wrapper
+functions. If you need specific information your first port of call
+will be the reference manual and your last port of call the&nbsp;<b><i>IrrlichtWrapper.bi</i></b>
+which hopefully you will not need.</p></td></tr></tbody>
+</table>
+<br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>Installation</h2>
+<p style="margin-bottom: 0cm;">The installation of
+the
+IrrlichtWrapper for FreeBasic package is very simple, just extract the
+zip file to a folder of your choice and your ready to go. You may
+prefer to&nbsp;move the <b><i>IrrlichtWrapper.bi</i></b>
+file to
+your <b><i>FreeBasic\inc </i></b>directory
+however I leave it where it is and create my project files within the
+same directory.
+As the Irrlicht DLL included with this package is modified to include
+addition features you cannot use a standard Irrlicht.dll from another
+download with this package, however if you like to compile your own
+executables C++ source is provided to enable you to do this.</p>
+<br>
+<span style="font-weight: bold;">Note: You will need
+FreeBasic verion 0.20 or better to use the wrapper</span></td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>The Scene</h2><p>
+When you start Irrlicht
+with the <b><i>IrrStart</i></b> command you
+create a
+scene that represents
+your 3D world, this scene is hidden behind the wrapper and is used to
+load and store all of your resources: Bitmap Textures, 3D Meshes,
+Fonts and the Nodes in your world.</p><div style="text-align: center;"><img style="width: 695px; height: 549px;" alt="" src="media/structure_diagram.png"></div></td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>The Texture and Image Objects</h2>
+<p>The texture and the image objects are both 2D bitmaps
+that are loaded
+from a bitmap file.</p><p>Textures
+are used to&nbsp;paint the surface of nodes (3D objects) in
+the scene or can be drawn directly to the screen as an image for
+counters or logos. Textures are stored in the computers main memory
+but, where possible, they are also stored in the Graphics Cards video
+memory to speed up 3D drawing.
+When you get a new
+texture the wrapper will return the object to you as an <b><i>irr_texture</i></b> type</p><p>Images
+are usualy used as a source of information and are not drawn to the
+screen and are instead used to set the height of terrains or to
+describe how grass is distributed. Images are stored only in the
+computers main memory. When you get a new image file the wrapper will
+return the object to you
+as an <span style="font-weight: bold;">irr_image</span>.</p></td><td><img style="width: 256px; height: 256px;" alt="" src="media/texture.jpg"></td></tr><tr><td colspan="2" rowspan="1">You need to save and manage both of theses objects so
+you can use them later. Once you are finished with them it is important
+that you remove them from memory as images can occupy a lot of memory and
+you can easily run out of video memory in particular.</td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>The Font Object</h2>
+An Irrlicht font is a
+monochromatic
+bitmap font that can be used to draw simple text onto the display.
+When you get a new font the wrapper will return the object to you as
+an <b><i>irr_font</i></b> type.</td><td style="text-align: center;"><img style="width: 256px; height: 48px;" alt="" src="media/font.jpg"></td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>The Mesh Object</h2><p>
+The Mesh can be thought of
+like a blue
+print and is not actually displayed in your scene. It is a list of
+triangular geometry that fits together to describe a 3D model, this can
+be a static prop, a complex map or a character. The mesh can also
+store animation information and a description of which parts of a
+texture are to be painted onto its surface.</p><p>Where a mesh describes a map it
+will also have references to dozens of bitmaps that it uses to paint its
+surfaces..&nbsp;When you get a new mesh object the wrapper will return it to you as
+an <b><i>irr_mesh</i></b> type.</p></td><td><img style="width: 256px; height: 256px;" alt="" src="media/wireframe.jpg"></td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>The Node Object</h2><p>
+A node is a physical object
+in your
+world a 3D Model, Camera, Light, Terrain, Billboard or Particle System. It is an element that has a position, rotation and
+scale, it will usually be rendered as a visible element if it is in
+front of the active camera when the canvas is drawn.</p><p>Nodes can
+usually be painted with a texture a process that is referred to as
+applying a material, they can be moved, rotated and scaled, hidden
+from view and deleted from the scene.
+</p><p style="margin-bottom: 0cm;">A 3D model is usually created
+by
+adding a mesh
+object to the scene. When you create a new node it will be returned to you as an <b><i>irr_node
+</i></b>type.</p></td><td><img style="width: 256px; height: 256px;" alt="" src="media/characters.jpg"></td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>The Camera Object</h2>
+A camera object is a
+special node type
+and represent your vantage point into the 3D world, the camera has a
+viewpoint and a target at which it looks. Cameras have a series of
+special commands that can alter the appearance of the display however
+they can also be copied directly into variables of type <b><i>irr_node
+</i></b>and be manipulated with all of the node
+commands.
+When a
+camera is created it is returned to you an <b><i>irr_camera
+</i></b>type.</td><td></td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>The Terrain Object</h2>
+A terrain object is a
+special node type
+and consists of a large square mesh that is pulled and lowered to
+represent hills, valleys and mountains. The terrain can be textured
+to give the appearance of a realistic landmass and with careful
+design it can even have map objects buried into it. Terrains have
+some special commands however they can also be copied directly into
+variables of type <b><i>irr_node </i></b>and
+be manipulated with all
+of the node commands. When a terrain is created it is returned to you
+an <b><i>irr_texture </i></b>type.</td><td><img style="width: 256px; height: 256px;" alt="" src="media/mapscene.jpg"></td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>The Particle System Object</h2>
+A particle system is a
+special node
+type that can be set up to spit out hundreds of tiny little Billboard
+like objects and simulate effects like, fire, explosions, fountains,
+waterfalls, rain etc ... The particle system has an item called an
+emitters attached to spit out particles and items called affectors
+attached to fade then out and change their direction. Particle
+systems have some special commands however they can also be copied
+directly into variables of type <b><i>irr_node </i></b>and
+be
+manipulated with all of the node commands. When a particle system is
+created it is returned to you an <b><i>irr_particle_system
+</i></b>type.</td><td><img style="width: 256px; height: 256px;" alt="" src="media/particles.jpg"></td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>The Animator Object</h2>
+Animator objects are
+attached to nodes
+and are used to delete, rotate or move the object in some way without
+you having to control the animation yourself step by step. When you
+create an animator it will be returned to you as an <b><i>irr_animator
+</i></b>type.</td><td></td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>The Selector Object</h2>
+Selector objects are used
+to gather
+together groups of triangular geometry in the scene that can be used
+for special functions, at the moment the wrapper only supports using
+them for collision detection. When you create a selector object it
+will be returned to you as a <b><i>irr_selector </i></b>type.</td><td></td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>License</h2>
+The Irrlicht Engine is
+based in part on
+the work of the Independent JPEG Group and the zlib. Please refer to
+the Irrlicht documentation and license agreements for further
+information.
+<p style="margin-bottom: 0cm;">This software is provided
+'as-is',
+without any express or implied warranty. In no event will the author
+be held liable for any damages arising from the use of this software.
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute
+it freely, subject to the following restrictions:</p>
+<p style="margin-bottom: 0cm;">1. The origin of this
+software must not
+be misrepresented; you must not claim that you wrote the original
+software. If you use this software in a product, an acknowledgment in
+the product documentation would be appreciated but is not required.</p>
+<p style="margin-bottom: 0cm;">2. Altered source versions
+must be
+plainly marked as such, and must not be misrepresented as being the
+original software.</p>
+<p style="margin-bottom: 0cm;">3. This notice may not be
+removed or
+altered from any source distribution.</p></td></tr></tbody></table><br><table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><h2>Contact</h2>
+If you have any problems or
+suggestions
+I would be happy to receive them. Although I can not promise any
+action or an individual response I do try to help where possible and
+to look after my babies even when I release them into the
+wild. Mail::frankdodd@ukonline.co.uk<br></td></tr></tbody></table><br>
+<table style="width: 784px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr><td colspan="2" rowspan="1"><h2>Acknowledgements</h2>
+I wish to express my gratitude &nbsp;to the following people whose work
+the wrapper is built upon or who&nbsp;have helped with contributions to
+the wrapper or with technical
+assistance for various features and problems.</td></tr><tr>
+<td style="font-weight: bold;">Irrlicht</td>
+<td> http://irrlicht.sourceforge.net/author.html</td>
+</tr>
+<tr>
+<td style="font-weight: bold;">FreeBasic</td>
+<td>
+http://www.freebasic.net/index.php/about?section=credits</td>
+</tr>
+<tr>
+<td style="font-weight: bold;">Simple Terrain
+Spattering</td>
+<td>With invaluable help from the OpenGL Splat tutorial by
+Jarno
+van der Linden
+(http://www.cs.auckland.ac.nz/~jvan006/multitex/multitex.html)</td>
+</tr>
+<tr>
+<td style="font-weight: bold;">Grass SceneNode</td>
+<td>Released under the Irrlicht License by G Davidson</td>
+</tr>
+<tr>
+<td style="font-weight: bold;">Clouds SceneNode</td>
+<td>Released under the Irrlicht License by G Davidson</td>
+</tr>
+<tr>
+<td style="font-weight: bold;">Lens Flare Scene Node</td>
+<td>Placed into the public domain by Paulo Oliveira</td>
+</tr>
+<tr>
+<td style="font-weight: bold;">6DOF Camera</td>
+<td> <strong style="font-weight: normal;">With
+lots of help from Colin MacDonald and theoretical advice from Aleofjax</strong></td>
+</tr>
+<tr>
+<td style="font-weight: bold;">Color and Spline
+particle affectors</td>
+<td>Released under the Irrlicht License by Dark Kilauea</td>
+</tr>
+<tr>
+<td style="font-weight: bold;">Newton Physics Engine
+support</td>
+<td>Developed by SiskinEDGE and the library provided by the
+Newton Game Dynamics team</td>
+</tr>
+<tr>
+<td style="font-weight: bold;">Open Dynamics Engine
+Physics support</td>
+<td>Bindings developed by D.J Peters and the library
+provided by the Open Dynamics Engine team.</td>
+</tr>
+<tr>
+<td><span style="font-weight: bold;">Many
+Irrilicht commands and support</span></td>
+<td>Provided by Agamemnus and The Car</td>
+</tr>
+<tr>
+<td><span style="font-weight: bold;">FreeType
+truetype font support</span></td>
+<td>Provided by the FreeType team (www.freetype.org)</td>
+</tr>
+<tr>
+<td><span style="font-weight: bold;">Batching
+Meshes</span></td>
+<td>Provided by Gaz Davidson (Bitplane)&nbsp;</td>
+</tr>
+<tr><td><span style="font-weight: bold;">Beam Node</span></td><td>Provided by Gaz Davidson (Bitplane)</td></tr><tr><td><span style="font-weight: bold;">Bolt Node</span></td><td>Provided by Sudi and Trivtn under the Irrlicht License</td></tr><tr>
+<td><span style="font-weight: bold;">XEffects
+- Reloaded</span></td>
+<td>Provided by Blindside</td>
+</tr>
+<tr>
+<td style="font-weight: bold;">Many
+thanks for the development tools</td>
+<td> Code::Blocks (www.codeblocks.org);
+GCC Compiler (gcc.gnu.org); FBIde (www.freebasic.net); FBEdit
+(fbedit.freebasic.net); NVu</td>
+</tr>
+<tr>
+<td style="font-weight: bold;">Lots of thanks for
+help in the Forums</td>
+<td><span class="postbody">Eponasoft;&nbsp;</span><span class="postbody"></span><span class="name">Daiwa;
+</span><span class="postbody"></span><span class="name">C</span><span class="name">rocodudule,
+</span><span class="postbody">John K, AlecZ,
+Alvaro Victor;&nbsp;</span><span class="name">thebignic
+and everyone that has offered their support. Thanks.</span></td>
+</tr>
+<tr align="center">
+<td colspan="2" rowspan="1" style="font-weight: bold;">And
+many thanks to the thousands of mails posts, examples, replies and
+comments scattered across the Internet that provided insights into many
+of the questions that needed to be solved in creating this library.</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+</body></html>

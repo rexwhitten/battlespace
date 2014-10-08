@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Platform and Compiler Support for the Wrapper Library for Irrlicht</title></head>
+<body>
+<hr style="width: 100%; height: 2px;"><br>
+<table style="width: 100%; height: 100px;" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td style="background-color: rgb(255, 186, 0); width: 128px;"><img style="width: 128px; height: 128px;" alt="" src="media/corner.jpg"></td>
+<td style="background-color: rgb(255, 186, 0);"></td><td style="width: 512px;" background="media/squigle.jpg">
+<h1 style="text-align: center;">Wrapper Library for
+Irrlicht</h1>
+<h1 style="text-align: center;">Platform and Compiler Support</h1>
+</td>
+<td></td><td style="width: 128px;"><a href="http://www.frankdodd.screaming.net//IrrlichtWrapper/IrrlichtWrapperPortal.htm"><img style="border: 0px solid ; width: 128px; height: 128px;" alt="" src="media/visit_button.jpg"></a></td>
+</tr>
+</tbody>
+</table>
+<hr style="width: 100%; height: 2px;"><h2>Overview</h2>IrrlichtWrapper
+is supplied with three sets of files. MSVC versions, GCC versions and
+Linux Versions. The default version of the files are those compiled
+with MSVC, these provide support for&nbsp;OpenGL, Direct X 8, Direct X
+9 and software rendering. The GCC and Linux versions support both
+OpenGL and Software rendering.<br><h2>GCC Compiler</h2>To use the GCC DLLs you need to rename the supplied files: -<br><br>1. Rename Irrlicht.dll to Irrlicht_ms.dll<br>2. Rename IrrlichtWrapper.dll to IrrlichtWrapper_ms.dll<br>3. Rename Irrlicht_gcc.dll to Irrlicht.dll<br>4. Rename IrrlichtWrapper_gcc.dll to IrrlichtWrapper.dll<br><br>You
+will now be able to build the IrrlichtWrapper with the GCC compiler and
+run the examples. You will not be able to use either Direct X rendering
+mode..<br><h2>Linux Platform</h2>The supplied linux library files
+libIrrlicht.so and libIrrlichtWrapper.so can be installed to your,
+/usr/lib directory, you will then be able to use the freebasic compiler
+to build and run the example files.<br><br>Linux support is limited at
+the moment the release is tested under Software Rendering on Fedora 11.
+The supplied libraries may provide reduced performanceand it is
+recommended that you rebuild both the Irrlicht Library and the
+IrrlichtWrapper library on your own system to utilise the OpenGL
+support that may be available on your system. <br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+</body></html>
