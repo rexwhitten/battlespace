@@ -87,7 +87,7 @@ var Client = function (options) {
         // set up the sphere vars
         var radius = 100,
             segments = 32,
-            rings = 16;
+            rings = 32;
 
         self.Meshs[name] = new THREE.Mesh(new THREE.SphereGeometry(radius,segments,rings),sphereMaterial);
         self.Meshs[name].position.x = 10;

@@ -1,4 +1,16 @@
 <% layout('layout') -%>
-<p>Username: <%= user.username %></p>
-<p>Email: <%= user.email %></p>
+
+<div class="member_set">
+    <span class="member_title">Account</span>
+    <hr />
+    <% for(var member in user) { %>
+    <div class="member">
+        <label class="member_label" for="<%= 'field_' + member %>"><%= member %></label><br />
+        <span id="<%= 'field_' + member %>" class="member_value"><%= user[member] %></span>
+    </div>
+    <% } %>
+</div>
+
+
+
 
