@@ -14,7 +14,6 @@ var battlespace = {};
     head.load('/scripts/lib/jquery/jquery.min.js',
               '/scripts/lib/dat-gui/dat.gui.min.js',
               '/scripts/lib/threejs/three.min.js',
-              '/scripts/lib/threejs/three.trackballcontrols.js',
               '/scripts/lib/wayjs/way.min.js',
               '/scripts/lib/jstorage/jstorage.min.js'
     );

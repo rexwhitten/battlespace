@@ -28,7 +28,7 @@ var Client = function (options) {
 
     self.scene = new THREE.Scene();
     
-    self.LoadScene = function () {
+    self.LoadScene = function (complete_callback) {
         self.scene = new THREE.Scene();
         self.scene.add(self.Camera);
 
@@ -37,35 +37,47 @@ var Client = function (options) {
         // Empty the container
         self.$container.empty();
         // attach the render-supplied DOM element
-        self.$container.append(renderer.domElement);
+        self.$container.append(self.renderer.domElement);
+
+        // draw!
+        self.renderer.render(self.scene, self.Camera);
+
+        self.ResetCamera();
+
+        // Execute callback when loaded
+        if (complete_callback) {
+            complete_callback();
+        }
     }
 
     self.ResetCamera = function () {
-        self.camera.position.z = 300;
-
+        self.Camera.position.z = 300;
     }
 
-    
-    
+    // Collection - Lights
+    self.Lights = {};
+    self.AddLight = function (name, color) {
 
-    
+        self.Lights[name] = new THREE.PointLight(0xFFFFFF);
+        self.Lights[name].position.x = 10;
+        self.Lights[name].position.y = 50;
+        self.Lights[name].position.z = 130;
 
-    self.AddLight = function () {
-        // create a point light
-        var pointLight =
-          new THREE.PointLight(0xFFFFFF);
-
-        // set its position
-        pointLight.position.x = 10;
-        pointLight.position.y = 50;
-        pointLight.position.z = 130;
+        // Add light info to Gui
+        var light = Application.ui.gui.addFolder(name);
+        
+        light.add(self.Lights[name].position, "x");
+        light.add(self.Lights[name].position, "y");
+        light.add(self.Lights[name].position, "z");
 
         // add to the scene
-        scene.add(pointLight);
+        self.scene.add(self.Lights[name]);
     }
 
-    self.MakeMesh = function () {
-        // create the sphere's material
+    // Collection - Meshes
+    self.Meshs = {};
+    self.AddMesh = function (name) {
+        // create default material
         var sphereMaterial =
           new THREE.MeshLambertMaterial(
             {
@@ -73,35 +85,31 @@ var Client = function (options) {
             });
 
         // set up the sphere vars
-        var radius = 500,
-            segments = 16,
+        var radius = 100,
+            segments = 32,
             rings = 16;
 
-        // create a new mesh with
-        // sphere geometry - we will cover
-        // the sphereMaterial next!
-        var sphere = new THREE.Mesh(
+        self.Meshs[name] = new THREE.Mesh(new THREE.SphereGeometry(radius,segments,rings),sphereMaterial);
+        self.Meshs[name].position.x = 10;
 
-          new THREE.SphereGeometry(
-            radius,
-            segments,
-            rings),
-
-          sphereMaterial);
-
-        sphere.position.x = 10;
+        // Add to UI 
+        var mesh = Application.ui.gui.addFolder(name);
+        mesh.add(self.Meshs[name].position, "x");
+        mesh.add(self.Meshs[name].position, "y");
+        mesh.add(self.Meshs[name].position, "z");
 
         // add the sphere to the scene
-        scene.add(sphere);
+        self.scene.add(self.Meshs[name]);
     };
 
-    self.MakeMesh();
-    self.AddLight();
 
-    
 
-    // draw!
-    renderer.render(scene, camera);
+    self.LoadScene(function () {
+        self.AddMesh("planet");
+        self.AddMesh("moon1");
+        self.AddMesh("moon2");
+        self.AddLight("main");
+    });  
 
     return self;
 };
