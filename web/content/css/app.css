@@ -6,6 +6,7 @@ body {
     background-color: #000000;
     color : #ffffff;
     font-family: 'Orbitron', sans-serif;
+    overflow: hidden;
 }
 
 
@@ -22,3 +23,29 @@ input {
     margin: 5px;
 }
 
+
+.command_bar {
+    padding: 10px;
+    border : 1px solid #808080;
+    border-radius: 8px;
+    color: #08aff8;
+    background-color: #1a1818;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.command_bar_label {
+    clear:both; 
+    overflow:auto;
+    float: right;
+}
+
+.container {
+    border: 0px solid #1e3401;
+    position: static;
+    clear:both;
+    margin-top:-2px;
+    margin-left:-51px;
+    margin-bottom:-5px;
+    opacity: 085;
+}
